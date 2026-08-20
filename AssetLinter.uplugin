@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "AssetLinter",
+	"Description": "Asset Linter 是一款专为 Unreal Engine 5 构建的 C++ 静态分析与资产合规性验证插件。",
+	"Category": "Editor Validation",
+	"CreatedBy": "LJason",
+	"CreatedByURL": "https://github.com/LJason77",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "AssetLinter",
+			"Type": "Editor",
+			"LoadingPhase": "Default"
+		}
+	]
+}
