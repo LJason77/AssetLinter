@@ -28,8 +28,9 @@ EDataValidationResult UAssetLinterNamingValidator::ValidateLoadedAsset_Implement
     const UAssetLinterSettings *Settings = GetDefault<UAssetLinterSettings>();
     if (!Settings || Settings->NamingRules.IsEmpty())
     {
-        // 如果没有配置任何规则，返回 NotValidated 将验证权交还给引擎其他验证器
-        return EDataValidationResult::NotValidated;
+        // 如果没有配置任何规则，视为全部合规放行
+        AssetPasses(InAsset);
+        return EDataValidationResult::Valid;
     }
 
     // 提取资产的真实反射类(解包 UBlueprint 映射)
@@ -103,7 +104,8 @@ EDataValidationResult UAssetLinterNamingValidator::ValidateLoadedAsset_Implement
         }
     }
 
-    // 没有命中任何自定义规则，返回不予验证
-    return EDataValidationResult::NotValidated;
+    // 没有命中任何自定义规则，视为天然合规
+    AssetPasses(InAsset);
+    return EDataValidationResult::Valid;
 }
 #pragma endregion
